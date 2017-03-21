@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Public Grevance Control Panel</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="navbar navbar-default" role="navigation">
+  <div class="navbar-inner">
+    <div class="container">
+      <div id="logo" class="navbar-brand"><%= link_to "Public Grevance Control Panel", root_path %></div>
+      <nav class="collapse navbar-collapse navbar-ex1-collapse">
+        <% if admin_signed_in? %>
+            <ul class="nav navbar-nav navbar-right">
+
+            </ul>
+        <% else -%>
+            <ul class="nav navbar-nav pull-right">
+              <li><%= link_to 'Sign up', new_admin_registration_path %></li>
+              <li><%= link_to 'Sign in', new_admin_session_path %></li>
+            </ul>
+        <% end -%>
+      </nav>
+    </div>
+  </div>
+</header>
+<% if admin_signed_in? %>
+    <div id="userEmail" >
+      Signed in as <%= current_admin.email %>
+    </div>
+<% end %>
+
+<div id="main_content" class="container">
+  <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-info") %>
+  <% end %>
+
+  <div id="content" class="col-md-9 center-block">
+    <%= yield %>
+  </div>
+</div>
+</div>
+</body>
+</html>

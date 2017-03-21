@@ -1,0 +1,50 @@
+<table>
+  <tr>
+    <th>User_id</th>
+    <th>_____</th>
+    <th></th>
+    <th>ministry</th>
+    <th>_____</th>
+    <th>image_link</th>
+    <th>_____</th>
+    <th>audio_link</th>
+    <th>_____</th>
+    <th>video_link</th>
+    <th>location</th>
+    <th>_____</th>
+    <th>status</th>
+    <th>_____</th>
+    <th>time of creation</th>
+  </tr>
+  testinfgsjdlfndlfkafalksjfnaslkjfndakjsfaksjfbafhljfsbaslkj.
+  <%@complaints.each do |complaint|%>
+
+      <tr>
+        <td>
+          <%= complaint.user_id %>
+        </td>
+        <td>_____</td>
+
+        <td>
+          <%= Ministry.find_by_id(complaint.ministry_id) %>
+        </td>
+        <td>_____</td>
+        <td>
+          <%= complaint.img_url %>
+        </td>
+        <td>_____</td>
+
+        <td><%= complaint.audio_text %></td>
+        <td>_____</td>
+        <td><%= complaint.video_url %></td>
+        <td>_____</td>
+        <td><%= complaint.location %></td>
+        <td>_____</td>
+        <td><%= complaint.status %></td>
+        <td>_____</td>
+        <td><%= complaint.created_at %></td>
+        <td>_____</td>
+      </tr>
+  <% end %>
+</table>
+
